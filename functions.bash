@@ -29,6 +29,8 @@ function autoupdate {
     sudo apt-get autoremove
 }
 
+# makes a directory if it doesn't exist
+# then it goes to that directory
 function mkcd {
     if [ ! -d $1 ]
     then
@@ -38,6 +40,7 @@ function mkcd {
     cd $1
 }
 
+# Returns 0 if the folder exists, asks to make it if it doesn't.
 function dir-exists {
     if [ ! -d $1 -a -n $1 ]
     then
@@ -61,6 +64,8 @@ function dir-exists {
     return 0
 }
 
+# Creates any number of C++ header and implementation file pairs
+# Also makes sure to add standard includes and include-guards
 function touch-cpp {
     for file in "$@"
     do
