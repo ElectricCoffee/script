@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Compiles C files treating all warnings as errors
+# It also compiles them using the ANSI flag,
+# It does so to ensure compatibility with older systems.
 function compile-c {
     local args="-Wall -Werror -ansi -pedantic"
     
@@ -40,6 +43,8 @@ function mkcd {
 }
 
 # Returns 0 if the folder exists, asks to make it if it doesn't.
+# If the answer is yes, the folder will be created, and 0 returned.
+# If the answer is no , 1 will be returned, and nothing else happens.
 function dir-exists {
     if [ ! -d $1 -a -n $1 ]
     then
