@@ -81,7 +81,7 @@ function touch-cpp {
 	    else
 		touch $cpp
 		echo "// The implementation of file $classname" > $cpp
-		echo "#include \"$hpp\"" >> $cpp
+		echo "#include \"$classname.hpp\"" >> $cpp
 		
 		touch $hpp
 		echo "// The header file of $classname" > $hpp
